@@ -23,7 +23,7 @@
     </li>
     {% for l in languages %}
     <li {% if language == l %}class="selected" {% endif %}>
-      <a href="{% url "course_list_language" l.slug %}">
+      <a href="{% url "courses:course_list_language" l.slug %}">
         {{ l.title }}
         <br><span>{{ l.total_courses }} courses</span>
       </a>
@@ -34,10 +34,10 @@
 <div class="module">
   {% for course in courses %}
     {% with language=course.language %}
-      <h3><a href="{% url "course_detail" course.slug %}">
+      <h3><a href="{% url "courses:course_detail" course.slug %}">
           {{ course.title }}</a></h3>
       <p>
-        <a href="{% url "course_list_language" language.slug %}">
+        <a href="{% url "courses:course_list_language" language.slug %}">
         {{ language }}</a>.
         {{ course.total_modules }} modules.
         Instructor: {{ course.owner }}
